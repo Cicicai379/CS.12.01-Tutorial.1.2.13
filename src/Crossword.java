@@ -20,10 +20,11 @@ public class Crossword {
 
     private boolean toBeLabeled(int r, int c, boolean[][] blackSquares) {
         if(blackSquares[r][c]) return false;
-        if(blackSquares[r - 1][c]) return true;
-        if(blackSquares[r][c - 1]) return true;
         if(c == 0) return true;
         if(r == 0) return true;
+        if(blackSquares[r - 1][c]) return true;
+        if(blackSquares[r][c - 1]) return true;
+
         return false;
 
     }
