@@ -10,8 +10,7 @@ public class Crossword {
                 if(toBeLabeled(i, j, blackSquares)) {
                     puzzle[i][j] = new Square(false, k);
                     k++;
-                }
-                else{
+                } else{
                     puzzle[i][j] = new Square(blackSquares[i][j], 0);
                 }
             }
@@ -21,8 +20,10 @@ public class Crossword {
 
     private boolean toBeLabeled(int r, int c, boolean[][] blackSquares) {
         if(blackSquares[r][c]) return false;
-        if(r == 0 || blackSquares[r - 1][c]) return true;
-        if(c == 0 || blackSquares[r][c - 1]) return true;
+        if(blackSquares[r - 1][c]) return true;
+        if(blackSquares[r][c - 1]) return true;
+        if(c == 0) return true;
+        if(r == 0) return true;
         return false;
 
     }
